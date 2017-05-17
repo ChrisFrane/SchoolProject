@@ -1,0 +1,33 @@
+section#results {
+   display: none;
+}
+
+body {
+   background-color: lightblue;
+   font-family: monospace, Courier; 
+}
+
+div {
+   white-space: pre;
+}
+
+table {
+    background-color: lightgray;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+table thead td {
+   word-wrap: break-word;
+   font-weight: bold;
+}
+
+table td {
+   border: 1px solid black;
+   padding: 2px, 6px;
+
+}
+
+

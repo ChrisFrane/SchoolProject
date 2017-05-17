@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <title> Results </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../finalproject/css/finalproject.css"/>         
+    </head>
+    <body>
+        <h1> Results </h1>
+        <h2> Sequence </h2>
+        <p>
+            {% for (linePos, line,) in sequence %}
+            <div>{{ linePos.rjust(10) }} {{ line }}</br></div>
+            {% endfor %}
+        </p>
+          <h2> Cut Site Locations </h2>
+          The enzyme cuts after the given nucleotide position.
+          <table>
+            <thead>
+                <tr>
+                    <td> Accession Number </td>
+                    <td> Gene Name </td>
+                    <td> Recognition Sequence </td>
+                    <td> Primary Stand Cut Location </td>
+                    <td> Complimentary Strand Cut Location </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enzyme in enzymes %}
+                    {% for (cut1, cut2,) in enzyme.cuts %}
+                        <tr>
+                           <td>{{ enzyme.accession }} </td>
+                           <td>{{ enzyme.gene }} </td>
+                           <td> 5'-{{ enzyme.recogSeq }}-3' </td>
+                           <td>{{ cut1 }} </td>
+                           <td>{{ cut2 }} </td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
+
