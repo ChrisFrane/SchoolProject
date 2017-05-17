@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Type-2 Restriction Enzyme Cutting</title>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+   <script type="text/javascript" src="js/autocomplete_analyze.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/finalproject.css"/>
+
+</head>
+
+
+<body id="home">
+
+    <h1> Analyze DNA Sequence for Type-2 Restriction Enzyme Cut Locations</h1>
+    
+    <form name='analyze_seq' id='analyze_seq' method='post' action='./analyze.cgi' enctype="multipart/form-data">
+
+        <p>
+            Enter linear DNA sequence in FASTA format:<br/>
+            <textarea id="sequence" type="textarea" name="sequence" rows=10 cols=60></textarea>
+        </p>
+        <p>
+            Or upload a linear DNA sequence with a single FASTA entry:
+            <input type="file" id="sequence_file" name="sequence_file" accept=".fas|.txt">
+        </p>
+        <p>
+            Select restriction enzymes to use or leave blank<br/>
+            to use all reviewed Type-2 restriction enzymes.<br/>
+        
+        
+            <select class="change" name="search_type">
+                <option value="gene_name">Gene Name</option>
+                <option value="enzyme.accession_num">Accession Number</option>
+                <option value="entry_name">UniProt Entry Name</option>
+            </select>
+            <input id="search_term" type="text" name="search_term"> 
+        </p>
+        <p>
+           <label for="cut_once">Return enzymes that only cut the sequence once:</label>
+           <input name="cut_once" id="cut_once" type="checkbox" value="True"</input>
+        </p>
+        <p>
+           <label for="hide_seq">Hide the sequence on the results page:</label>
+           <input name="hide_seq" id="hide_seq" type="checkbox" value="True"</input>
+        </p> 
+         <input id="submit" type="submit" value="Submit">
+    
+    </form>
+</body>
+</html>
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restriction Enzyme Search</title>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="js/autocomplete_search.js"></script>
+    <script type="text/javascript" src="js/search_enzymes.js"></script>
+  
+    <link rel="stylesheet" type="text/css" href="css/finalproject.css"/>
+
+</head>
+
+
+<body id="home">
+
+    <h1> Search Restriction Enzyme Database</h1>
+    
+    <form name='search_enzymes' id='search_enzymes'  action="" >
+        <p>
+            Search by:
+            <select class = "change" id="search_type" name="search_type">
+                <option value="gene_name">Gene Name</option>
+                <option value="enzyme.accession_num">Accession Number</option>
+                <option value="entry_name">UniProt Entry Name</option>
+            </select>
+        </p>
+        <p>
+            Entry review status:
+            <select class = "change" id='review_status' name="review_status">
+                <option value="reviewed">Reviewed Only</option>
+                <option value="unreviewed">Unreviewed Only</option>
+                <option value="%reviewed"> Both unreviewed and reviewed</option>
+            </select>
+        </p>
+        <p>
+            Restriction enzyme type:
+            <label for="type_1"> 1 </label>
+            <input class = "change" id="type_1" type="checkbox" name="type_1" value="Type-1">
+            
+            <label for="type_2"> 2 </label>
+            <input class = "change" id="type_2" type="checkbox" name="type_2" value="Type-2" checked>
+            
+            <label for="type_3"> 3 </label>
+            <input class = "change" id="type_3" type="checkbox" name="type_3" value="Type-3">
+        </p>
+        Term:
+        <input id="search_term" type="text" name="search_term"> 
+        <button type="button" id="submit">Submit</button>
+    </form>
+    <section id='results'>
+        <p>
+            <span id='match_count'>0</span> enzyme(s) found.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td> Accession Number</td>
+                    <td> UniProt Entry Name</td>
+                    <td> Protein Name </td>
+                    <td> Recognition Sequence </td>
+                    <td> Cut Location </td>
+                    <td> Complementary Sequence Cut Location </td>
+                    <td> Organism </td>
+                
+                </tr>
+            </thead>
+            <tbody>
+                <!-- this will be filled in by javascript -->
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
+
